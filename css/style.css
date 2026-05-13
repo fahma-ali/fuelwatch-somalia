@@ -207,7 +207,104 @@ body {
   font-weight: 800;
   color: #22c55e;
 }
+/* PRICE TABLE */
+.price-table-section {
+  padding: 100px 20px;
+  background: #f8fafc;
+}
 
+.price-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.price-container h2 {
+  font-size: 46px;
+  color: #071739;
+  margin-bottom: 20px;
+}
+
+.filter-area {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-area input,
+.filter-area select {
+  width: 280px;
+  padding: 16px 18px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+
+  font-size: 16px;
+  outline: none;
+
+  background: white;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  background: white;
+
+  border-radius: 24px;
+  overflow: hidden;
+
+  box-shadow: 0 18px 45px rgba(7, 23, 57, 0.08);
+}
+
+thead {
+  background: #071739;
+}
+
+th {
+  color: white;
+  padding: 22px;
+  text-align: left;
+  font-size: 17px;
+}
+
+td {
+  padding: 20px 22px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+  text-align: left;
+}
+
+tbody tr {
+  transition: 0.3s;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+td:first-child {
+  font-weight: 700;
+  color: #071739;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .price-container h2 {
+    font-size: 34px;
+  }
+
+  .filter-area input,
+  .filter-area select {
+    width: 100%;
+  }
+}
 /* FEATURES */
 .features-section {
   padding: 100px 20px;

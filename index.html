@@ -71,7 +71,38 @@
         </div>
       </div>
     </section>
+<section class="price-table-section">
+  <div class="price-container">
+    <span class="section-label">Fuel Prices</span>
+    <h2>Current Fuel Prices by City</h2>
 
+    <div class="filter-area">
+      <input type="text" id="searchInput" placeholder="Search city..." />
+
+      <select id="fuelFilter">
+        <option value="all">All Fuel Types</option>
+        <option value="petrol">Petrol</option>
+        <option value="diesel">Diesel</option>
+        <option value="kerosene">Kerosene</option>
+      </select>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>City</th>
+            <th class="petrol-col">Petrol</th>
+            <th class="diesel-col">Diesel</th>
+            <th class="kerosene-col">Kerosene</th>
+          </tr>
+        </thead>
+
+        <tbody id="fuelTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
     <section class="features-section" id="about">
       <div class="features-container">
         <span class="section-label">Why FuelWatch?</span>
