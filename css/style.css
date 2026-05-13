@@ -15,7 +15,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 60px;
-  background: #071739;
+  background: rgba(7, 23, 57, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   height: 95px;
 }
 
@@ -26,7 +27,7 @@ body {
 }
 
 .logo img {
-  width: 170px;
+  width: 250px;
   margin-top: 10px;
   display: block;
 }
@@ -48,3 +49,50 @@ body {
 .nav-links a:hover {
   color: #22c55e;
 }
+
+/* start here hero section css */
+.hero {
+  min-height: calc(100vh - 95px);
+  background: linear-gradient(135deg, #071739, #0f766e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  color: white;
+}
+
+.hero-content {
+  max-width: 750px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #d1d5db;
+  margin-bottom: 35px;
+}
+
+.hero-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: #22c55e;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: #16a34a;
+  transform: translateY(-3px);
+}
+
