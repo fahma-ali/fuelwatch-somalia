@@ -294,17 +294,6 @@ td:first-child {
   color: #071739;
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .price-container h2 {
-    font-size: 34px;
-  }
-
-  .filter-area input,
-  .filter-area select {
-    width: 100%;
-  }
-}
 /* FEATURES */
 .features-section {
   padding: 100px 20px;
@@ -401,66 +390,66 @@ td:first-child {
   line-height: 1.8;
   font-size: 16px;
 }
-
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .navbar {
-    padding: 10px 30px;
-  }
-
-  .stats-container,
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero h1 {
-    font-size: 48px;
-  }
-
-  .features-container h2 {
-    font-size: 40px;
-  }
+/* FOOTER */
+.footer {
+  background: #071739;
+  color: white;
+  padding: 70px 20px 20px;
 }
 
-@media (max-width: 600px) {
-  .navbar {
-    height: auto;
-    flex-direction: column;
-    gap: 15px;
-    padding: 18px 20px;
-  }
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
 
-  .logo img {
-    width: 180px;
-  }
-
-  .nav-links {
-    gap: 20px;
-  }
-
-  .hero {
-    min-height: auto;
-    padding: 80px 18px 130px;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .hero p {
-    font-size: 17px;
-  }
-
-  .stats-container,
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .features-container h2 {
-    font-size: 34px;
-  }
-
-  .stat-card p {
-    font-size: 32px;
-  }
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
 }
+
+.footer-logo img {
+  width: 200px;
+  margin-bottom: 18px;
+}
+
+.footer-logo p {
+  max-width: 420px;
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.footer-links a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #22c55e;
+}
+
+.footer-contact p {
+  color: #cbd5e1;
+  margin-bottom: 12px;
+}
+
+.footer-contact i {
+  color: #22c55e;
+  margin-right: 8px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 50px;
+  padding-top: 20px;
+  text-align: center;
+  color: #94a3b8;
+}
+
