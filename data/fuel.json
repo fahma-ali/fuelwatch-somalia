@@ -1,0 +1,36 @@
+[
+  {
+    "city": "Mogadishu",
+    "petrol": 1.28,
+    "diesel": 1.20,
+    "kerosene": 1.11
+  },
+
+  {
+    "city": "Hargeisa",
+    "petrol": 1.24,
+    "diesel": 1.17,
+    "kerosene": 1.08
+  },
+
+  {
+    "city": "Kismayo",
+    "petrol": 1.18,
+    "diesel": 1.12,
+    "kerosene": 1.05
+  },
+
+  {
+    "city": "Garowe",
+    "petrol": 1.22,
+    "diesel": 1.16,
+    "kerosene": 1.07
+  },
+
+  {
+    "city": "Bosaso",
+    "petrol": 1.26,
+    "diesel": 1.19,
+    "kerosene": 1.09
+  }
+]
