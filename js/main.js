@@ -31,6 +31,72 @@ function displayData(fuelData) {
                         <td class = "kerosene-col">${item.kerosene}</td>
                        </tr>`;
   });
+    filterFuelType();
 
 }
 
+function searchCities() {
+  const searchValue = searchInput.value.toLowerCase();
+
+  const filteredData = fuelData.filter((item) => {
+    return item.city.toLowerCase().includes(searchValue);
+  });
+
+  displayData(filteredData);
+}
+
+/* Filter Fuel Type */
+function filterFuelType() {
+  const selectedFuel = fuelFilter.value;
+
+  const petrolCols = document.querySelectorAll(".petrol-col");
+  const dieselCols = document.querySelectorAll(".diesel-col");
+  const keroseneCols = document.querySelectorAll(".kerosene-col");
+
+  petrolCols.forEach(function (col) {
+    col.style.display = "";
+  });
+
+  dieselCols.forEach(function (col) {
+    col.style.display = "";
+  });
+
+  keroseneCols.forEach(function (col) {
+    col.style.display = "";
+  });
+
+  if (selectedFuel === "petrol") {
+    dieselCols.forEach(function (col) {
+      col.style.display = "none";
+    });
+
+    keroseneCols.forEach(function (col) {
+      col.style.display = "none";
+    });
+  }
+
+  if (selectedFuel === "diesel") {
+    petrolCols.forEach(function (col) {
+      col.style.display = "none";
+    });
+
+    keroseneCols.forEach(function (col) {
+      col.style.display = "none";
+    });
+  }
+
+  if (selectedFuel === "kerosene") {
+    petrolCols.forEach(function (col) {
+      col.style.display = "none";
+    });
+
+    dieselCols.forEach(function (col) {
+      col.style.display = "none";
+    });
+  }
+}
+
+
+//addEventListeners
+searchInput.addEventListener("input", searchCities);
+fuelFilter.addEventListener("change",searchCities );
