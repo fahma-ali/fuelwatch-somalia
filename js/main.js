@@ -3,6 +3,10 @@ const navLinks = document.querySelector(".nav-links");
 const fuelTableBody = document.getElementById("fuelTableBody");
 const searchInput = document.getElementById("searchInput");
 const fuelFilter = document.getElementById("fuelFilter");
+const avgPetrol = document.getElementById("avgPetrol");
+const avgDiesel = document.getElementById("avgDiesel");
+const cheapestCity = document.getElementById("cheapestCity");
+const lastUpdated = document.getElementById("lastUpdated");
 burgerBtn.addEventListener("click", function () {
   navLinks.classList.toggle("active");
 
@@ -18,6 +22,7 @@ async function loadFuelData() {
   fuelData = await response.json();
   console.log(response);
   displayData(fuelData);
+  updateStats(fuelData);
 }
 loadFuelData();
 
@@ -44,6 +49,7 @@ function searchCities() {
 
   displayData(filteredData);
 }
+
 
 /* Filter Fuel Type */
 function filterFuelType() {
@@ -96,7 +102,39 @@ function filterFuelType() {
   }
 }
 
+function updateStats(data) {
+  // Average Petrol
+  const petrolAverage =
+    data.reduce(function (total, item) {
+      return total + item.petrol;
+    }, 0) / data.length;
 
+  // Average Diesel
+  const dieselAverage =
+    data.reduce(function (total, item) {
+      return total + item.diesel;
+    }, 0) / data.length;
+
+  // Cheapest City
+  const cheapest = data.reduce(function (lowest, item) {
+    if (item.petrol < lowest.petrol) {
+      return item;
+    } else {
+      return lowest;
+    }
+  });
+
+  // Update HTML
+  avgPetrol.textContent = `$${petrolAverage.toFixed(2)}`;
+
+  avgDiesel.textContent = `$${dieselAverage.toFixed(2)}`;
+
+  cheapestCity.textContent = cheapest.city;
+
+  lastUpdated.textContent = "Today";
+}
 //addEventListeners
 searchInput.addEventListener("input", searchCities);
-fuelFilter.addEventListener("change",searchCities );
+fuelFilter.addEventListener("change",filterFuelType );
+
+
