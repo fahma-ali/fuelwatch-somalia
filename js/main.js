@@ -8,7 +8,21 @@ const avgDiesel = document.getElementById("avgDiesel");
 const cheapestCity = document.getElementById("cheapestCity");
 const lastUpdated = document.getElementById("lastUpdated");
 const themeBtn = document.getElementById("themeBtn");
+const navItems = document.querySelectorAll(".nav-links a");
+const clearSearch = document.getElementById("clearSearch");
+navItems.forEach(function (link) {
+  link.addEventListener("click", function () {
+    navItems.forEach(function (item) {
+      item.classList.remove("active");
+    });
 
+    link.classList.add("active");
+
+    navLinks.classList.remove("active");
+
+    burgerBtn.innerHTML = `<i class="fa-solid fa-bars"></i>`;
+  });
+});
 burgerBtn.addEventListener("click", function () {
   navLinks.classList.toggle("active");
 
@@ -23,7 +37,7 @@ themeBtn.addEventListener("click", function () {
   document.body.classList.toggle("dark");
 
   if (document.body.classList.contains("dark")) {
-      localStorage.setItem("theme", "dark");
+    localStorage.setItem("theme", "dark");
     themeBtn.innerHTML = `<i class="fa-solid fa-sun"></i>`;
   } else {
     localStorage.setItem("theme", "light");
@@ -40,28 +54,65 @@ if (localStorage.getItem("theme") === "dark") {
 
   themeBtn.innerHTML = `<i class="fa-solid fa-moon"></i>`;
 }
+clearSearch.addEventListener("click", function () {
+  searchInput.value = "";
+  displayData(fuelData);
+});
 let fuelData = [];
 async function loadFuelData() {
+  try{
+
+
   const response = await fetch("./data/fuel.json");
+  if (!response.ok) {
+    throw new Error("Fuel data could not be loaded");
+  }
+
   fuelData = await response.json();
-  console.log(response);
+  
   displayData(fuelData);
   updateStats(fuelData);
+    }catch(error){
+       fuelTableBody.innerHTML = `
+      <tr>
+        <td colspan="5" class="no-data">
+          Failed to load fuel prices. Please try again later.
+        </td>
+      </tr>
+    `;
+
+    console.error(error);
+    }
 }
 loadFuelData();
 
 function displayData(fuelData) {
   fuelTableBody.innerHTML = "";
+  if (fuelData.length === 0) {
+    fuelTableBody.innerHTML = `
+                <tr>
+                  <td colspan="5" class="no-data">No city found</td>
+                </tr>
+              `;
+    return;
+  }
   fuelData.forEach((item) => {
-    fuelTableBody.innerHTML += `<tr>
+    const favoriteCity = localStorage.getItem("favoriteCity");
+    const isFavorite = favoriteCity === item.city;
+    fuelTableBody.innerHTML += `
+                      <tr class="${isFavorite ? "favorite-row" : ""}">
                        <td class = "city">${item.city}</td>
-                        <td class ="petrol-col">${item.petrol}</td>
-                        <td class ="diesel-col">${item.diesel}</td>
-                        <td class = "kerosene-col">${item.kerosene}</td>
+                        <td class ="petrol-col">$${item.petrol}</td>
+                        <td class ="diesel-col">$${item.diesel}</td>
+                        <td class = "kerosene-col">$${item.kerosene}</td>
+                        <td>
+                        <button class="favorite-btn" onclick="saveFavorite('${item.city}')">  
+                        ${favoriteCity === item.city ? "Saved ✓" : "Save"}
+                        </button>
+                        </td>
                        </tr>`;
   });
-    filterFuelType();
-
+  filterFuelType();
 }
 
 function searchCities() {
@@ -73,7 +124,6 @@ function searchCities() {
 
   displayData(filteredData);
 }
-
 
 /* Filter Fuel Type */
 function filterFuelType() {
@@ -125,7 +175,11 @@ function filterFuelType() {
     });
   }
 }
+function saveFavorite(city) {
+  localStorage.setItem("favoriteCity", city);
 
+  displayData(fuelData);
+}
 function updateStats(data) {
   // Average Petrol
   const petrolAverage =
@@ -155,10 +209,18 @@ function updateStats(data) {
 
   cheapestCity.textContent = cheapest.city;
 
-  lastUpdated.textContent = "Today";
+
 }
+function updateTime() {
+  const currentDate = new Date();
+
+  lastUpdated.textContent =
+    currentDate.toLocaleString();
+}
+
+updateTime();
+
+setInterval(updateTime, 1000);
 //addEventListeners
 searchInput.addEventListener("input", searchCities);
-fuelFilter.addEventListener("change",filterFuelType );
-
-
+fuelFilter.addEventListener("change", filterFuelType);

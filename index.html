@@ -19,7 +19,6 @@
         <img src="./logo/logo4.png" alt="FuelWatch Somalia Logo" />
       </div>
 
-
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
@@ -27,12 +26,10 @@
           <li><a href="#about">About</a></li>
         </ul>
 
-       
-
         <button class="burger" id="burgerBtn">
           <i class="fa-solid fa-bars"></i>
         </button>
-         <button id="themeBtn" class="theme-btn">
+        <button id="themeBtn" class="theme-btn">
           <i class="fa-solid fa-moon"></i>
         </button>
       </div>
@@ -90,7 +87,7 @@
 
         <div class="filter-area">
           <input type="text" id="searchInput" placeholder="Search city..." />
-
+          <button id="clearSearch" class="clear-btn">Clear</button>
           <select id="fuelFilter">
             <option value="all">All Fuel Types</option>
             <option value="petrol">Petrol</option>
@@ -98,8 +95,9 @@
             <option value="kerosene">Kerosene</option>
           </select>
         </div>
-
+ <p class="scroll-note">Swipe left to see all fuel prices</p>
         <div class="table-wrapper">
+         
           <table>
             <thead>
               <tr>
@@ -107,6 +105,7 @@
                 <th class="petrol-col">Petrol</th>
                 <th class="diesel-col">Diesel</th>
                 <th class="kerosene-col">Kerosene</th>
+                <th>Favorite</th>
               </tr>
             </thead>
 

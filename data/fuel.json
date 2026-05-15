@@ -32,5 +32,11 @@
     "petrol": 1.26,
     "diesel": 1.19,
     "kerosene": 1.09
+  },
+  {
+    "city": "Adada",
+    "petrol": 1.20,
+    "diesel": 1.5,
+    "kerosene": 1.3
   }
 ]

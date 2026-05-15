@@ -99,7 +99,7 @@ body.dark .features-section,
 body.dark .price-table-section {
   background: #020617;
 }
-body.dark tbody tr:hover{
+body.dark tbody tr:hover {
   background-color: #334155;
 }
 body.dark .stat-card,
@@ -296,10 +296,41 @@ body.dark td:first-child {
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
+.favorite-btn {
+  border: none;
+  background: #22c55e;
+  color: white;
 
+  padding: 8px 16px;
+  border-radius: 8px;
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.favorite-btn:hover {
+  background: #16a34a;
+}
+.favorite-row {
+  background: rgba(34, 197, 94, 0.15);
+}
+
+.favorite-row td {
+  color: #22c55e;
+  font-weight: 600;
+}
+.no-data {
+  text-align: center;
+  padding: 25px;
+  color: #64748b;
+  font-weight: 600;
+}
 .filter-area input,
 .filter-area select {
-  width: 280px;
+  width: 520px;
   padding: 16px 18px;
 
   border: 1px solid #cbd5e1;
@@ -312,11 +343,13 @@ body.dark td:first-child {
 }
 
 .table-wrapper {
+  width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
-
 table {
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
 
   background: white;
@@ -326,7 +359,6 @@ table {
 
   box-shadow: 0 18px 45px rgba(7, 23, 57, 0.08);
 }
-
 thead {
   background: #071739;
 }
@@ -357,7 +389,25 @@ td:first-child {
   font-weight: 700;
   color: #071739;
 }
+.clear-btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  background: #071739;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
 
+.clear-btn:hover {
+  background: #0f766e;
+}
+.scroll-note {
+  display: none;
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
 /* FEATURES */
 .features-section {
   padding: 100px 20px;
@@ -611,7 +661,9 @@ td:first-child {
     width: 100%;
     text-align: center;
   }
-
+  .nav-links a.active {
+    color: #22c55e;
+  }
   .nav-links a {
     display: block;
     padding: 14px;
@@ -663,21 +715,33 @@ td:first-child {
     flex-direction: column;
   }
 
-  .filter-area input,
-  .filter-area select {
-    width: 100%;
-  }
+ .filter-area input,
+.filter-area select,
+.clear-btn {
+  width: 100%;
+}
 
   /* Table */
-  .table-wrapper {
-    overflow-x: auto;
-  }
+ /* Table */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
 
-  th,
-  td {
-    padding: 14px;
-    font-size: 14px;
-  }
+table {
+  min-width: 720px;
+}
+
+.scroll-note {
+  display: block;
+}
+
+th,
+td {
+  padding: 14px;
+  font-size: 14px;
+  white-space: nowrap;
+}
 
   /* Footer */
   .footer {
