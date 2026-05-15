@@ -7,6 +7,8 @@ const avgPetrol = document.getElementById("avgPetrol");
 const avgDiesel = document.getElementById("avgDiesel");
 const cheapestCity = document.getElementById("cheapestCity");
 const lastUpdated = document.getElementById("lastUpdated");
+const themeBtn = document.getElementById("themeBtn");
+
 burgerBtn.addEventListener("click", function () {
   navLinks.classList.toggle("active");
 
@@ -14,6 +16,15 @@ burgerBtn.addEventListener("click", function () {
     burgerBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
   } else {
     burgerBtn.innerHTML = `<i class="fa-solid fa-bars"></i>`;
+  }
+});
+themeBtn.addEventListener("click", function () {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    themeBtn.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+  } else {
+    themeBtn.innerHTML = `<i class="fa-solid fa-moon"></i>`;
   }
 });
 let fuelData = [];

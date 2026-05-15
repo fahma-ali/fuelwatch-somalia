@@ -70,6 +70,58 @@ body {
   font-size: 26px;
   cursor: pointer;
 }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.theme-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #22c55e;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.theme-btn:hover {
+  background: #16a34a;
+}
+body.dark {
+  background: #020617;
+  color: white;
+}
+
+body.dark .features-section,
+body.dark .price-table-section {
+  background: #020617;
+}
+body.dark tbody tr:hover{
+  background-color: #334155;
+}
+body.dark .stat-card,
+body.dark .feature-card,
+body.dark table {
+  background: #0f172a;
+  color: white;
+}
+
+body.dark td,
+body.dark .feature-card p,
+body.dark .features-container > p,
+body.dark .footer-logo p,
+body.dark .footer-contact p {
+  color: #cbd5e1;
+}
+
+body.dark h2,
+body.dark h3,
+body.dark td:first-child {
+  color: white;
+}
 /* HERO */
 .hero {
   min-height: calc(100vh - 90px);
