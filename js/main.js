@@ -18,15 +18,28 @@ burgerBtn.addEventListener("click", function () {
     burgerBtn.innerHTML = `<i class="fa-solid fa-bars"></i>`;
   }
 });
+
 themeBtn.addEventListener("click", function () {
   document.body.classList.toggle("dark");
 
   if (document.body.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
     themeBtn.innerHTML = `<i class="fa-solid fa-sun"></i>`;
   } else {
+    localStorage.setItem("theme", "light");
     themeBtn.innerHTML = `<i class="fa-solid fa-moon"></i>`;
   }
 });
+// Check Saved Theme
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+
+  themeBtn.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+} else {
+  document.body.classList.remove("dark");
+
+  themeBtn.innerHTML = `<i class="fa-solid fa-moon"></i>`;
+}
 let fuelData = [];
 async function loadFuelData() {
   const response = await fetch("./data/fuel.json");
